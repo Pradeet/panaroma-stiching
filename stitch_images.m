@@ -39,11 +39,9 @@
 %
 % March 2014
 
-function [result_img, H, num_inliers, residual] = stitch_images...
-    (images, sift_r, harris_r, harris_thresh, harris_sigma, num_putative_matches, ransac_n)
+function [result_img, H, num_inliers, residual] = stitch_images(images, sift_r, harris_r, harris_thresh, harris_sigma, num_putative_matches, ransac_n)
 
-    image_order =  find_ordered_homography(images, sift_r, harris_r, harris_thresh, ...
-        harris_sigma, num_putative_matches, ransac_n);
+    image_order =  find_ordered_homography(images, sift_r, harris_r, harris_thresh, harris_sigma, num_putative_matches, ransac_n);
 
     n_img = length(images);
     num_inliers = zeros(n_img, n_img);

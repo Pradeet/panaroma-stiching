@@ -1,6 +1,4 @@
-function image_order = ...
-    find_ordered_homography(images, sift_r, harris_r, harris_thresh, ...
-        harris_sigma, num_putative_matches, ransac_n)
+function image_order = find_ordered_homography(images, sift_r, harris_r, harris_thresh, harris_sigma, num_putative_matches, ransac_n)
 
     n_img = length(images);
     num_inliers = zeros(n_img, n_img);
@@ -19,7 +17,7 @@ function image_order = ...
     end
 
     link = cell(1, n_img);
-    
+
     [~, sort_index] = sort(num_inliers(:), 'descend');
     inlier_thresh = num_inliers(sort_index(n_img*2-2));
 
